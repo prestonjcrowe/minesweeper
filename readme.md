@@ -1,3 +1,9 @@
 ## Minesweeper
 
-I originally wrote this game as an exercise for a student of mine. I plan on making some minor fixes / improvements so I have something to do when I'm bored in lecture.
+#### Controls
+
+*Click to reveal a square*
+*Shift + Click to place a flag*
+*Space to reset*
+
+![screenshot](./screenshots/minesweeper.png)

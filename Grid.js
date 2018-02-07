@@ -22,7 +22,7 @@ class Grid {
                     state: 0,
                     cellSize: cellSize,
                     flagged: false,
-                    hidden: true
+                    hidden: false
                 };
 		    }
 	    }
@@ -31,22 +31,28 @@ class Grid {
 	init() {
         let mineX = [];
         let mineY = [];
+        
+        let mineStrings = [];
+
+
         for (var p = 0; p < this.startingMines; p++ ) {
             let randX = Math.round(random(this.gridSize - 1));
             let randY = Math.round(random(this.gridSize - 1));
+            let mineStr = randX + ',' + randY;
 
             // if mine already exists, generate new random values
-            if (mineX.indexOf(randX) === mineY.indexOf(randY) &&
-                mineX.indexOf(randX) != -1) {   
+            if (mineStrings.includes(mineStr)) {   
                 p--;
             } else {
                 mineX.push(randX);
                 mineY.push(randY);
+                mineStrings.push(mineStr);
             }
         }
         for (var i = 0; i < this.startingMines; i++ ) {
             let x = mineX[i];
             let y = mineY[i];
+
             this.board[x][y].state = -1;
             this.mines.push(this.board[x][y]);
             for (var r = x - 1; r < x + 2; r++) {
@@ -132,6 +138,7 @@ class Grid {
         if (!this.gameOver) {
             const x = Math.floor(mouseX / this.cellSize);
             const y = Math.floor(mouseY / this.cellSize);
+            if (x >= this.gridSize || y >= this.gridSize) { return }
             let cell = this.board[x][y];
       
             if (shiftHeld) {

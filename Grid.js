@@ -22,7 +22,7 @@ class Grid {
                     state: 0,
                     cellSize: cellSize,
                     flagged: false,
-                    hidden: false
+                    hidden: true 
                 };
 		    }
 	    }

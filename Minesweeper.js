@@ -6,32 +6,32 @@ var grid;
 var shiftHeld;
 
 function setup() {
-    createCanvas(GRID_SIZE * CELL_SIZE, GRID_SIZE * CELL_SIZE);
-    shiftHeld = false;
-    grid = new Grid(GRID_SIZE, CELL_SIZE, MINES);
-    grid.init();
+  createCanvas(GRID_SIZE * CELL_SIZE, GRID_SIZE * CELL_SIZE);
+  shiftHeld = false;
+  grid = new Grid(GRID_SIZE, CELL_SIZE, MINES);
+  grid.init();
 }
 
 function draw() {
-    background(0);
-    grid.draw();
+  background(0);
+  grid.draw();
 }
 
 function mousePressed() {
-	grid.onClick(mouseX, mouseY, shiftHeld);
+  grid.onClick(mouseX, mouseY, shiftHeld);
 }
 
 function keyPressed() {
-    if (keyCode === SHIFT) {
-        shiftHeld = true;
-    }
-    if (key === ' ') {
-        setup();
-    }
-};
+  if (keyCode === SHIFT) {
+    shiftHeld = true;
+  }
+  if (key === " ") {
+    setup();
+  }
+}
 
 function keyReleased() {
   if (keyCode === SHIFT) {
     shiftHeld = false;
   }
-};
+}
